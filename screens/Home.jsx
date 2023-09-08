@@ -13,7 +13,7 @@ import {
 import {Post} from "../components/Post";
 
 
-export const HomeScreen = () => {
+export const HomeScreen = ({navigation}) => {
   const [items, setItems] = React.useState();
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -53,7 +53,7 @@ export const HomeScreen = () => {
         refreshControl={ <RefreshControl refreshing={isLoading} onRefresh={fetchPosts}/>}
         data={items}
         renderItem={({item}) =>(
-          <TouchableOpacity >
+          <TouchableOpacity onPress = {() => navigation.navigate('FullPost', {id: item.id, title: item.title})} >
             <Post title={item.title} imageUrl={item.imageUrl} createdAt={item.createdAt}/>
           </TouchableOpacity>
         )}
