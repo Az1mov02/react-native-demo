@@ -44,7 +44,7 @@ export const Post = ({title, imageUrl, createdAt}) => {
       source={{uri: imageUrl}}/>
     <PostDetails>
       <PostTitle>{truncateTitle(title)}</PostTitle>
-      <PostDate>{createdAt}</PostDate>
+      <PostDate>{new Date(createdAt) .toLocaleDateString()}</PostDate>
     </PostDetails>
   </PostView>
 }
